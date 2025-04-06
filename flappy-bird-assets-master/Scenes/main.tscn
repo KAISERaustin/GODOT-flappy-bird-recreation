@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://cvnjgnllo8vep"]
+
+[ext_resource type="Texture2D" uid="uid://bd5njdsq2bfff" path="res://flappy-bird-assets-master/sprites/background-day.png" id="1_n1oc1"]
+[ext_resource type="PackedScene" uid="uid://bslnbiwoamk5e" path="res://flappy-bird-assets-master/Scenes/Ground.tscn" id="2_nj8h2"]
+[ext_resource type="PackedScene" uid="uid://b2i1yfos8tnc1" path="res://flappy-bird-assets-master/Scenes/player.tscn" id="3_nj8h2"]
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Background-day1" type="Sprite2D" parent="Background"]
+position = Vector2(0, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground1" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(0, 168)
+
+[node name="Background-day6" type="Sprite2D" parent="Background"]
+position = Vector2(-272, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground6" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(-272, 168)
+
+[node name="Background-day2" type="Sprite2D" parent="Background"]
+position = Vector2(272, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground2" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(272, 168)
+
+[node name="Background-day3" type="Sprite2D" parent="Background"]
+position = Vector2(544, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground3" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(544, 168)
+
+[node name="Background-day4" type="Sprite2D" parent="Background"]
+position = Vector2(816, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground4" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(816, 168)
+
+[node name="Background-day5" type="Sprite2D" parent="Background"]
+position = Vector2(1088, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground5" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(1088, 168)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(0, -48.415)
+zoom = Vector2(1.455, 1.455)
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_nj8h2")]

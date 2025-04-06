@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://b2i1yfos8tnc1"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2q6he"]
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+z_index = 5
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2q6he")
