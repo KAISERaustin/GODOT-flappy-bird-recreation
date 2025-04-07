@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bslnbiwoamk5e"]
+
+[ext_resource type="PackedScene" uid="uid://dw6x4f0b38v8x" path="res://Scenes/base.tscn" id="1_rcers"]
+
+[sub_resource type="GDScript" id="GDScript_rxw4n"]
+
+[node name="Ground" type="Node2D"]
+script = SubResource("GDScript_rxw4n")
+
+[node name="GroundCollision" parent="." instance=ExtResource("1_rcers")]
+position = Vector2(5.72205e-06, 0)

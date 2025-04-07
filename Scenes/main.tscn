@@ -1,0 +1,244 @@
+[gd_scene load_steps=5 format=3 uid="uid://cvnjgnllo8vep"]
+
+[ext_resource type="Texture2D" uid="uid://bd5njdsq2bfff" path="res://sprites/background-day.png" id="1_n1oc1"]
+[ext_resource type="PackedScene" uid="uid://bslnbiwoamk5e" path="res://Scenes/Ground.tscn" id="2_nj8h2"]
+[ext_resource type="PackedScene" uid="uid://b2i1yfos8tnc1" path="res://Scenes/player.tscn" id="3_nj8h2"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8gbba"]
+distance = -269.0
+
+[node name="Main" type="Node2D"]
+
+[node name="Background" type="Node" parent="."]
+
+[node name="Background-day1" type="Sprite2D" parent="Background"]
+position = Vector2(0, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground1" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(0, 168)
+
+[node name="Background-day6" type="Sprite2D" parent="Background"]
+position = Vector2(-272, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground6" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(-272, 168)
+
+[node name="Background-day2" type="Sprite2D" parent="Background"]
+position = Vector2(272, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground2" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(272, 168)
+
+[node name="Background-day3" type="Sprite2D" parent="Background"]
+position = Vector2(544, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground3" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(544, 168)
+
+[node name="Background-day4" type="Sprite2D" parent="Background"]
+position = Vector2(816, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground4" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(816, 168)
+
+[node name="Background-day5" type="Sprite2D" parent="Background"]
+position = Vector2(1088, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground5" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(1088, 168)
+
+[node name="Background-day7" type="Sprite2D" parent="Background"]
+position = Vector2(1632, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground7" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(1632, 168)
+
+[node name="Background-day8" type="Sprite2D" parent="Background"]
+position = Vector2(1360, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground8" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(1360, 168)
+
+[node name="Background-day9" type="Sprite2D" parent="Background"]
+position = Vector2(1904, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground9" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(1904, 168)
+
+[node name="Background-day10" type="Sprite2D" parent="Background"]
+position = Vector2(2176, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground10" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(2176, 168)
+
+[node name="Background-day11" type="Sprite2D" parent="Background"]
+position = Vector2(2448, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground11" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(2448, 168)
+
+[node name="Background-day12" type="Sprite2D" parent="Background"]
+position = Vector2(2720, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground12" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(2720, 168)
+
+[node name="Background-day13" type="Sprite2D" parent="Background"]
+position = Vector2(3264, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground13" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(3264, 168)
+
+[node name="Background-day14" type="Sprite2D" parent="Background"]
+position = Vector2(2992, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground14" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(2992, 168)
+
+[node name="Background-day15" type="Sprite2D" parent="Background"]
+position = Vector2(3536, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground15" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(3536, 168)
+
+[node name="Background-day16" type="Sprite2D" parent="Background"]
+position = Vector2(3808, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground16" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(3808, 168)
+
+[node name="Background-day17" type="Sprite2D" parent="Background"]
+position = Vector2(4080, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground17" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(4080, 168)
+
+[node name="Background-day18" type="Sprite2D" parent="Background"]
+position = Vector2(4352, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground18" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(4352, 168)
+
+[node name="Background-day19" type="Sprite2D" parent="Background"]
+position = Vector2(4896, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground19" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(4896, 168)
+
+[node name="Background-day20" type="Sprite2D" parent="Background"]
+position = Vector2(4624, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground20" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(4624, 168)
+
+[node name="Background-day21" type="Sprite2D" parent="Background"]
+position = Vector2(5168, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground21" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(5168, 168)
+
+[node name="Background-day22" type="Sprite2D" parent="Background"]
+position = Vector2(5440, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground22" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(5440, 168)
+
+[node name="Background-day23" type="Sprite2D" parent="Background"]
+position = Vector2(5712, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground23" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(5712, 168)
+
+[node name="Background-day24" type="Sprite2D" parent="Background"]
+position = Vector2(5984, -56)
+scale = Vector2(0.944444, 1)
+texture = ExtResource("1_n1oc1")
+
+[node name="Ground24" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
+position = Vector2(5984, 168)
+
+[node name="Node2D" type="StaticBody2D" parent="Background"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Background/Node2D"]
+rotation = 3.14159
+shape = SubResource("WorldBoundaryShape2D_8gbba")
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("3_nj8h2")]
+
+[node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
+offset = Vector2(0, -48.415)
+zoom = Vector2(1.455, 1.455)
+limit_top = -220
+limit_bottom = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
