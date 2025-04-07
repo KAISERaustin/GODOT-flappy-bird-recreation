@@ -3,14 +3,15 @@ extends CharacterBody2D
 @onready var area_2d: Area2D = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var character_body_2d: CharacterBody2D = $"."
+@onready var time_to_rotate_down: Timer = $time_to_rotate_down
 
 var SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 var is_a_loser = false
+var ready_to_rotate_down = true
 
 func _physics_process(delta: float) -> void:
-	
-	
 	
 	# Add the gravity.
 	if not is_on_floor():
@@ -19,15 +20,13 @@ func _physics_process(delta: float) -> void:
 	# Handle jump.
 	#grabs the input, checks if on the ceiling, checks if they collided with a forbidden area!
 	if Input.is_action_just_pressed("jump") and not is_on_ceiling() and not is_a_loser:
-		animated_sprite_2d.sprite_frames.set_animation_loop("moving", true)
-		animated_sprite_2d.play("moving")
+		animation_player.play("default")
+		character_body_2d.rotation_degrees = -20
 		velocity.y = JUMP_VELOCITY
-		#Animation stuff
-		#var original_loop_state = animated_sprite_2d.loop
-		animated_sprite_2d.sprite_frames.set_animation_loop("moving", false)
-		#Await the animation_finished signal
-		await(animated_sprite_2d.animation_finished)
-		animation_player.play("falling_for_long_time")
+		time_to_rotate_down.start()
+		animated_sprite_2d.play("moving")
+		if ready_to_rotate_down:
+			ready_to_rotate_down = false
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -47,3 +46,6 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 		is_a_loser = true
 		SPEED = 0
 		
+func _on_time_to_rotate_down_timeout() -> void:
+	animation_player.play("falling_for_long_time") 
+	ready_to_rotate_down = true

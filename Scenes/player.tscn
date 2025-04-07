@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://b2i1yfos8tnc1"]
+[gd_scene load_steps=18 format=3 uid="uid://b2i1yfos8tnc1"]
 
 [ext_resource type="Script" uid="uid://cp40vspr3api8" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://drdrckcmmw6di" path="res://sprites/yellowbird-spritesheet.png" id="1_n1n0i"]
@@ -80,22 +80,6 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="Animation" id="Animation_cvnsp"]
-resource_name = "falling_for_long_time"
-length = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 1.5708]
-}
-
 [sub_resource type="Animation" id="Animation_6t5aa"]
 length = 0.001
 tracks/0/type = "value"
@@ -111,9 +95,42 @@ tracks/0/keys = {
 "values": [0.0]
 }
 
+[sub_resource type="Animation" id="Animation_cvnsp"]
+resource_name = "falling_for_long_time"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 1.5708]
+}
+
+[sub_resource type="Animation" id="Animation_vgqql"]
+resource_name = "default"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.349066]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vgqql"]
 _data = {
 &"RESET": SubResource("Animation_6t5aa"),
+&"default": SubResource("Animation_vgqql"),
 &"falling_for_long_time": SubResource("Animation_cvnsp")
 }
 
@@ -135,11 +152,15 @@ shape = SubResource("CapsuleShape2D_n1n0i")
 sprite_frames = SubResource("SpriteFrames_00ae3")
 animation = &"moving"
 autoplay = "moving"
-frame_progress = 0.775763
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_vgqql")
 }
 
+[node name="time_to_rotate_down" type="Timer" parent="."]
+wait_time = 0.4
+one_shot = true
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="timeout" from="time_to_rotate_down" to="." method="_on_time_to_rotate_down_timeout"]
