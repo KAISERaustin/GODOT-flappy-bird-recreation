@@ -1,53 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://cvnjgnllo8vep"]
+[gd_scene load_steps=6 format=3 uid="uid://cvnjgnllo8vep"]
 
-[ext_resource type="Texture2D" uid="uid://bd5njdsq2bfff" path="res://sprites/background-day.png" id="1_n1oc1"]
+[ext_resource type="PackedScene" uid="uid://cfhbjglmi4wtl" path="res://Scenes/background.tscn" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bslnbiwoamk5e" path="res://Scenes/Ground.tscn" id="2_nj8h2"]
 [ext_resource type="PackedScene" uid="uid://b2i1yfos8tnc1" path="res://Scenes/player.tscn" id="3_nj8h2"]
 [ext_resource type="AudioStream" uid="uid://b36goktgy07bj" path="res://audio/music.mp3" id="4_jjvhh"]
-[ext_resource type="PackedScene" uid="uid://d0dirtlnjphpd" path="res://Scenes/pipe.tscn" id="4_kry3j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8gbba"]
 distance = 0.000141144
 
 [node name="Main" type="Node2D"]
 
-[node name="Pipe" parent="." instance=ExtResource("4_kry3j")]
-position = Vector2(64, 32)
-height = 128
-
 [node name="Background" type="Node" parent="."]
 
-[node name="Background-day" type="Sprite2D" parent="Background"]
-position = Vector2(-320, 56)
-texture = ExtResource("1_n1oc1")
+[node name="Background" parent="Background" instance=ExtResource("1_jjvhh")]
 
 [node name="Ground" parent="Background" instance=ExtResource("2_nj8h2")]
-z_index = 1
-position = Vector2(-320, 183.8)
-
-[node name="Background-day0" type="Sprite2D" parent="Background"]
-position = Vector2(-160, 56)
-texture = ExtResource("1_n1oc1")
-
-[node name="Ground0" parent="Background" instance=ExtResource("2_nj8h2")]
-z_index = 1
-position = Vector2(-160, 183.8)
-
-[node name="Background-day1" type="Sprite2D" parent="Background"]
-position = Vector2(0, 56)
-texture = ExtResource("1_n1oc1")
-
-[node name="Ground1" parent="Background" instance=ExtResource("2_nj8h2")]
-z_index = 1
-position = Vector2(0, 183.8)
-
-[node name="Background-day2" type="Sprite2D" parent="Background"]
-position = Vector2(160, 56)
-texture = ExtResource("1_n1oc1")
-
-[node name="Ground2" parent="Background" instance=ExtResource("2_nj8h2")]
-z_index = 1
-position = Vector2(160, 183.8)
 
 [node name="Node2D" type="StaticBody2D" parent="Background"]
 position = Vector2(0, -96)
@@ -57,9 +24,11 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_8gbba")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_nj8h2")]
+position = Vector2(150, 400)
+scale = Vector2(1.5, 1.5)
 
 [node name="Camera2D" type="Camera2D" parent="CharacterBody2D"]
-zoom = Vector2(2.45, 2.45)
+offset = Vector2(90, 96)
 limit_top = -96
 limit_bottom = 32
 position_smoothing_enabled = true

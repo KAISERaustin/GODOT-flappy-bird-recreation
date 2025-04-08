@@ -9,8 +9,8 @@ extends CharacterBody2D
 @onready var ground_death: AudioStreamPlayer2D = $ground_death
 @onready var load_up_main_menu: Timer = $load_up_main_menu
 
-var SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+var SPEED = 200.0
+const JUMP_VELOCITY = -450.0
 var is_a_loser = false
 var ready_to_rotate_down = true
 
@@ -34,7 +34,7 @@ func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
-	var direction = .5
+	var direction = 0
 	if direction:
 		velocity.x = direction * SPEED
 	else:
