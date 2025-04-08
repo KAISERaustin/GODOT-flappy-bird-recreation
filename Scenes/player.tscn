@@ -1,7 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://b2i1yfos8tnc1"]
+[gd_scene load_steps=20 format=3 uid="uid://b2i1yfos8tnc1"]
 
 [ext_resource type="Script" uid="uid://cp40vspr3api8" path="res://Scripts/player.gd" id="1_cvnsp"]
 [ext_resource type="Texture2D" uid="uid://drdrckcmmw6di" path="res://sprites/yellowbird-spritesheet.png" id="1_n1n0i"]
+[ext_resource type="AudioStream" uid="uid://bralrta3m1ctc" path="res://audio/wing.wav" id="3_6t5aa"]
+[ext_resource type="AudioStream" uid="uid://bbltp7dvyhh7w" path="res://audio/hit.wav" id="4_vgqql"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pf2wl"]
 radius = 12.0
@@ -58,7 +60,7 @@ animations = [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_5l654")
 }],
-"loop": true,
+"loop": false,
 "name": &"idle",
 "speed": 5.0
 }, {
@@ -136,6 +138,7 @@ _data = {
 
 [node name="CharacterBody2D" type="CharacterBody2D"]
 z_index = 5
+scale = Vector2(0.5, 0.5)
 script = ExtResource("1_cvnsp")
 
 [node name="CollisionBody" type="CollisionShape2D" parent="."]
@@ -150,7 +153,7 @@ shape = SubResource("CapsuleShape2D_n1n0i")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_00ae3")
-animation = &"moving"
+animation = &"idle"
 autoplay = "moving"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -162,5 +165,19 @@ libraries = {
 wait_time = 0.4
 one_shot = true
 
+[node name="load_up_main_menu" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[node name="jump" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_6t5aa")
+bus = &"SFX"
+
+[node name="ground_death" type="AudioStreamPlayer2D" parent="."]
+scale = Vector2(1, 1)
+stream = ExtResource("4_vgqql")
+bus = &"SFX"
+
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="timeout" from="time_to_rotate_down" to="." method="_on_time_to_rotate_down_timeout"]
+[connection signal="timeout" from="load_up_main_menu" to="." method="_on_load_up_main_menu_timeout"]

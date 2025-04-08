@@ -1,0 +1,121 @@
+[gd_scene load_steps=11 format=3 uid="uid://2lpbsl88nf0g"]
+
+[ext_resource type="Texture2D" uid="uid://bd5njdsq2bfff" path="res://sprites/background-day.png" id="1_1ehe0"]
+[ext_resource type="FontFile" uid="uid://chvessqjsufra" path="res://Fonts/Minecraft.ttf" id="1_28flt"]
+[ext_resource type="Script" uid="uid://cvr41pwyv4sn7" path="res://Scenes/main_menu.gd" id="1_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://bfobkcaqr8luy" path="res://sprites/flappy_bird_title.png" id="2_ce3w2"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n45e2"]
+texture = ExtResource("1_1ehe0")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_opfnp"]
+texture = ExtResource("2_ce3w2")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_1ehe0"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1ehe0"]
+content_margin_top = 10.0
+bg_color = Color(0.815686, 0.184314, 0.470588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.823529, 0.847059, 0.733333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.581033, 0.581033, 0.581033, 0.662745)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ce3w2"]
+content_margin_top = 10.0
+bg_color = Color(0.994155, 9.47213e-05, 0.773537, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.823529, 0.847059, 0.733333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.581033, 0.581033, 0.581033, 0.662745)
+shadow_size = 4
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_n45e2"]
+content_margin_top = 10.0
+bg_color = Color(0.815686, 0.470588, 0.470588, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.823529, 0.847059, 0.733333, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+shadow_color = Color(0.581033, 0.581033, 0.581033, 0.662745)
+shadow_size = 4
+
+[node name="MainMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ce3w2")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_n45e2")
+
+[node name="Panel2" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -270.5
+offset_top = 170.0
+offset_right = 270.5
+offset_bottom = 316.0
+grow_horizontal = 2
+theme_override_styles/panel = SubResource("StyleBoxTexture_opfnp")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -14.0
+offset_right = 112.0
+offset_bottom = 14.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 6
+theme_override_colors/font_hover_color = Color(0.823529, 0.847059, 0.733333, 1)
+theme_override_colors/font_color = Color(0.823529, 0.847059, 0.733333, 1)
+theme_override_colors/font_focus_color = Color(0.823529, 0.847059, 0.733333, 1)
+theme_override_fonts/font = ExtResource("1_28flt")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/focus = SubResource("StyleBoxEmpty_1ehe0")
+theme_override_styles/hover = SubResource("StyleBoxFlat_1ehe0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_ce3w2")
+theme_override_styles/normal = SubResource("StyleBoxFlat_n45e2")
+text = "START"
+autowrap_mode = 2
+clip_text = true
+
+[connection signal="pressed" from="VBoxContainer/Button" to="." method="_on_button_pressed"]

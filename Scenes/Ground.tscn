@@ -1,11 +1,20 @@
-[gd_scene load_steps=3 format=3 uid="uid://bslnbiwoamk5e"]
+[gd_scene load_steps=4 format=3 uid="uid://bslnbiwoamk5e"]
 
 [ext_resource type="PackedScene" uid="uid://dw6x4f0b38v8x" path="res://Scenes/base.tscn" id="1_rcers"]
 
 [sub_resource type="GDScript" id="GDScript_rxw4n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rxw4n"]
+size = Vector2(160, 4)
 
 [node name="Ground" type="Node2D"]
 script = SubResource("GDScript_rxw4n")
 
 [node name="GroundCollision" parent="." instance=ExtResource("1_rcers")]
 position = Vector2(5.72205e-06, 0)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="ground_collider" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -30)
+shape = SubResource("RectangleShape2D_rxw4n")
