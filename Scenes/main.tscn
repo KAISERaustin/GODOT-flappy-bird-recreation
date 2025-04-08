@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://cvnjgnllo8vep"]
+[gd_scene load_steps=7 format=3 uid="uid://cvnjgnllo8vep"]
 
 [ext_resource type="PackedScene" uid="uid://cfhbjglmi4wtl" path="res://Scenes/background.tscn" id="1_jjvhh"]
 [ext_resource type="PackedScene" uid="uid://bslnbiwoamk5e" path="res://Scenes/Ground.tscn" id="2_nj8h2"]
 [ext_resource type="PackedScene" uid="uid://b2i1yfos8tnc1" path="res://Scenes/player.tscn" id="3_nj8h2"]
 [ext_resource type="AudioStream" uid="uid://b36goktgy07bj" path="res://audio/music.mp3" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://dco1vh6y08cg1" path="res://Scenes/obstacle_spawner.tscn" id="5_kry3j"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_8gbba"]
 distance = 0.000141144
@@ -15,6 +16,7 @@ distance = 0.000141144
 [node name="Background" parent="Background" instance=ExtResource("1_jjvhh")]
 
 [node name="Ground" parent="Background" instance=ExtResource("2_nj8h2")]
+z_index = 1
 
 [node name="Node2D" type="StaticBody2D" parent="Background"]
 position = Vector2(0, -96)
@@ -24,6 +26,7 @@ rotation = 3.14159
 shape = SubResource("WorldBoundaryShape2D_8gbba")
 
 [node name="CharacterBody2D" parent="." instance=ExtResource("3_nj8h2")]
+z_index = 1
 position = Vector2(150, 400)
 scale = Vector2(1.5, 1.5)
 
@@ -38,3 +41,5 @@ position_smoothing_speed = 10.0
 stream = ExtResource("4_jjvhh")
 autoplay = true
 bus = &"Music"
+
+[node name="ObstacleSpawner" parent="." instance=ExtResource("5_kry3j")]

@@ -1,3 +1,44 @@
-[gd_scene format=3 uid="uid://d0suwwl4k3x7c"]
+[gd_scene load_steps=5 format=3 uid="uid://d0suwwl4k3x7c"]
 
-[node name="Obstacle" type="Node2D"]
+[ext_resource type="Script" uid="uid://rnwm4xygs7qv" path="res://Scripts/obstacle.gd" id="1_2p81s"]
+[ext_resource type="PackedScene" uid="uid://b2bqhmiciqjp" path="res://Scenes/pipe.tscn" id="1_15o2q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2p81s"]
+size = Vector2(66.5, 445)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvx1i"]
+size = Vector2(56, 160)
+
+[node name="obstacle" type="Node2D" groups=["pipe"]]
+z_index = 1
+position = Vector2(0, 427)
+script = ExtResource("1_2p81s")
+
+[node name="Pipe" parent="." instance=ExtResource("1_15o2q")]
+position = Vector2(0, 80)
+scale = Vector2(1.4, 1.4)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe"]
+position = Vector2(-0.178571, 160.357)
+scale = Vector2(0.714286, 0.714286)
+shape = SubResource("RectangleShape2D_2p81s")
+
+[node name="Pipe2" parent="." instance=ExtResource("1_15o2q")]
+position = Vector2(0, -80)
+rotation = 3.14159
+scale = Vector2(1.4, 1.4)
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Pipe2"]
+position = Vector2(0.178165, 160.357)
+rotation = -3.14159
+scale = Vector2(0.714286, 0.714286)
+shape = SubResource("RectangleShape2D_2p81s")
+
+[node name="Score Area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Score Area"]
+shape = SubResource("RectangleShape2D_rvx1i")
+
+[connection signal="body_entered" from="Pipe" to="." method="_on_pipe_body_entered"]
+[connection signal="body_entered" from="Pipe2" to="." method="_on_pipe_body_entered"]
+[connection signal="body_exited" from="Score Area" to="." method="_on_score_area_body_exited"]

@@ -136,18 +136,18 @@ _data = {
 &"falling_for_long_time": SubResource("Animation_cvnsp")
 }
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="CharacterBody2D" type="CharacterBody2D" groups=["player"]]
 z_index = 5
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_cvnsp")
 
-[node name="CollisionBody" type="CollisionShape2D" parent="."]
+[node name="CollisionBody" type="CollisionShape2D" parent="." groups=["player"]]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_pf2wl")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="Area2D" type="Area2D" parent="." groups=["player"]]
 
-[node name="AreaCollisionBody" type="CollisionShape2D" parent="Area2D"]
+[node name="AreaCollisionBody" type="CollisionShape2D" parent="Area2D" groups=["player"]]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_n1n0i")
 

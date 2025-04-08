@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Player
+
 @onready var area_2d: Area2D = $Area2D
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -10,7 +12,7 @@ extends CharacterBody2D
 @onready var load_up_main_menu: Timer = $load_up_main_menu
 
 var SPEED = 200.0
-const JUMP_VELOCITY = -450.0
+const JUMP_VELOCITY = -425.0
 var is_a_loser = false
 var ready_to_rotate_down = true
 
@@ -44,11 +46,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.is_in_group("ground"):
-		ground_death.play()
-		animated_sprite_2d.stop()
-		is_a_loser = true
-		SPEED = 0
-		load_up_main_menu.start()
+		die()
 		
 		
 func _on_time_to_rotate_down_timeout() -> void:
@@ -58,3 +56,11 @@ func _on_time_to_rotate_down_timeout() -> void:
 
 func _on_load_up_main_menu_timeout() -> void:
 	get_tree().change_scene_to_file("res://Scenes/main_menu.tscn")
+
+func die():
+	ground_death.play()
+	animated_sprite_2d.stop()
+	is_a_loser = true
+	
+	load_up_main_menu.start()
+	

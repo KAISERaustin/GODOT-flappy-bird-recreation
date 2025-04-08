@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://bd5njdsq2bfff" path="res://sprites/background-day.png" id="1_1ehe0"]
 [ext_resource type="FontFile" uid="uid://chvessqjsufra" path="res://Fonts/Minecraft.ttf" id="1_28flt"]
-[ext_resource type="Script" uid="uid://cvr41pwyv4sn7" path="res://Scenes/main_menu.gd" id="1_ce3w2"]
+[ext_resource type="Script" uid="uid://cvr41pwyv4sn7" path="res://Scripts/main_menu.gd" id="1_ce3w2"]
 [ext_resource type="Texture2D" uid="uid://bfobkcaqr8luy" path="res://sprites/flappy_bird_title.png" id="2_ce3w2"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n45e2"]
@@ -78,14 +78,17 @@ theme_override_styles/panel = SubResource("StyleBoxTexture_n45e2")
 
 [node name="Panel2" type="Panel" parent="."]
 layout_mode = 1
-anchors_preset = 5
+anchors_preset = 8
 anchor_left = 0.5
+anchor_top = 0.5
 anchor_right = 0.5
-offset_left = -270.5
-offset_top = 170.0
-offset_right = 270.5
-offset_bottom = 316.0
+anchor_bottom = 0.5
+offset_left = -194.5
+offset_top = -182.0
+offset_right = 194.5
+offset_bottom = -77.0
 grow_horizontal = 2
+grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxTexture_opfnp")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
