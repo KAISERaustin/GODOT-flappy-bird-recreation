@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5uymvtim8avs"]
+
+[ext_resource type="Script" uid="uid://wcypuhb1hofy" path="res://Scripts/scene_manager.gd" id="1_mk1ro"]
+
+[node name="SceneManager" type="Node"]
+script = ExtResource("1_mk1ro")
+
+[node name="FadeLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="FadeLayer"]
+offset_right = 480.0
+offset_bottom = 856.0
+color = Color(0, 0, 0, 1)
